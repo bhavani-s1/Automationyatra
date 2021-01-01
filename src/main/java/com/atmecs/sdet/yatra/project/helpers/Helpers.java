@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.atmecs.sdet.yatra.project.testbase.Base;
-
 public class Helpers extends Base {
 
 WebDriver driver;

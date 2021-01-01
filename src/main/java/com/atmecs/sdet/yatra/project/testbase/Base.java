@@ -22,11 +22,13 @@ public class Base{
 	@BeforeMethod
 	@Parameters("browser")
 	public void browserSetUp(String browser) throws FileNotFoundException, IOException {
+		
+		
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver", Constants.CHROME_PATH);
 			driver = new ChromeDriver();
+			
 			reader = new ReadPropertyFile(Constants.CONFIG);
-
 			String url = reader.get("url");
 			driver.get(url);
 
@@ -50,7 +52,7 @@ public class Base{
 	@AfterMethod
 	public void closeBrowser() {
 		driver.quit();
-		;
+	
 	}
 
 }

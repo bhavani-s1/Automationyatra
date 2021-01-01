@@ -26,7 +26,7 @@ public class SearchCruise extends Base {
 		Reporter.log("Opening Home Page");
 		locators = new ReadPropertyFile(Constants.LOCATORS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		if (Helpers.checkIfDisplayed(driver, locators.get("iFrameXpath"))) {
+	/*if (Helpers.checkIfDisplayed(driver, locators.get("iFrameXpath"))) {
 			driver.switchTo().frame(driver.findElement(By.xpath(locators.get("iFrameXpath"))));
 			Helpers.PerformClick(driver, locators.get("iFrameCloseXpath"));
 			driver.switchTo().parentFrame();
@@ -38,7 +38,8 @@ public class SearchCruise extends Base {
 			Helpers.PerformClick(driver, locators.get("iFrameCloseXpath"));
 			driver.switchTo().parentFrame();			
 
-		}
+		}*/
+		
 		Helpers.PerformClick(driver, locators.get("moreLinkXpath"));
 		Helpers.PerformClick(driver, locators.get("cruiseLinkXpath"));
 
@@ -48,17 +49,25 @@ public class SearchCruise extends Base {
 		Helpers.waitAndSelect(driver, locators.get("destinationXpath"));
 		Helpers.waitAndSelect(driver, locators.get("destinationValueXpath"));
 		Reporter.log("Selecting Dates ");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("dateXpath"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("dateValueXpath"));
 		Reporter.log("Selecting Days ");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("daysXpath"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("daysValueXpath"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Reporter.log("Selecting Cruise Lines ");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("cruiselineXpath"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Helpers.waitAndSelect(driver, locators.get("cruiselineValueXpath"));
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		Helpers.PerformClick(driver, locators.get("searchButtonXpath"));
-
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		String parent = driver.getWindowHandle();
 
 		Set<String> s = driver.getWindowHandles();
@@ -88,6 +97,7 @@ public class SearchCruise extends Base {
 		Reporter.log("Number of days Verified");
 		Helpers.PerformClick(driver, locators.get("bookXpath"));
 		Helpers.PerformClick(driver, locators.get("itineraryXpath"));
+
 
 	}
 }

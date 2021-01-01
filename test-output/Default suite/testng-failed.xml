@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.atmecs.sdet.yatra.project.testscripts.CruiseTest">
+      <class name="com.atmecs.sdet.yatra.project.testscripts.SearchCruise">
         <methods>
-          <include name="afterTest"/>
-          <include name="beforeTest"/>
-          <include name="Clicklinks"/>
+          <include name="searchCruise"/>
+          <include name="closeBrowser"/>
+          <include name="browserSetUp"/>
         </methods>
-      </class> <!-- com.atmecs.sdet.yatra.project.testscripts.CruiseTest -->
+      </class> <!-- com.atmecs.sdet.yatra.project.testscripts.SearchCruise -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

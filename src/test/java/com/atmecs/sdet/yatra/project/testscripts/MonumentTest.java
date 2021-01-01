@@ -12,48 +12,46 @@ import com.atmecs.sdet.yatra.project.helpers.Helpers;
 import com.atmecs.sdet.yatra.project.helpers.ReadPropertyFile;
 import com.atmecs.sdet.yatra.project.testbase.Base;
 
-public class MonumentTest extends Base {
+	public class MonumentTest extends Base {
+		ReadPropertyFile locators;
 
-	ReadPropertyFile locators;
+		@Test
+		public void displayMonuments() throws InterruptedException, IOException {
 
-	@Test
-	public void displayMonuments() throws InterruptedException, IOException {
+			locators = new ReadPropertyFile(Constants.LOCATORS);
+			
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			Helpers.PerformClick(driver, locators.get("moreLinkXpath"));
 
-		locators = new ReadPropertyFile(Constants.LOCATORS);
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Helpers.PerformClick(driver, locators.get("moreLinkXpath"));
-
-		Helpers.PerformClick(driver, locators.get("monumentLinkPath"));
-		
-		
+			Helpers.PerformClick(driver, locators.get("monumentLinkPath"));
+			Helpers.PerformClick(driver, locators.get("monumentssearch"));
+			
+			
 		if(Helpers.checkIfDisplayed(driver, locators.get("iFrameXpath")))
-		{
-			Helpers.closeAd(driver, locators.get("iFrameXpath"), locators.get("iFrameCloseXpath"));
+			{
+				Helpers.closeAd(driver, locators.get("iFrameXpath"), locators.get("iFrameCloseXpath"));
 
+			}
+			
+			
+			boolean topMonuments = Helpers.checkIfDisplayed(driver, locators.get("topMonumentsXpath"));
 
-		}
-		
-
-		
-		boolean topMonuments = Helpers.checkIfDisplayed(driver, locators.get("topMonumentsXpath"));
-
-		Assert.assertEquals(true, topMonuments);
-		if (topMonuments == true) {
-			Reporter.log("Top Monuments Section  has been Displayed");
-		}
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		boolean qutubMinarstatus = Helpers.checkIfDisplayed(driver, locators.get("qutubMinarXpath"));
-		Assert.assertEquals(true, qutubMinarstatus);
-		if (qutubMinarstatus == true) {
-			Reporter.log("Qutub Minar has been Displayed");
-		}
-		boolean tombStatus = Helpers.checkIfDisplayed(driver, locators.get("humayunsTombXpath"));
-		Assert.assertEquals(true, tombStatus);
-		if (tombStatus == true) {
-			Reporter.log("Humayuns Tomb has been Displayed");
+			Assert.assertEquals(true, topMonuments);
+			if (topMonuments == true) {
+				Reporter.log("Top Monuments Section  has been Displayed");
+			}
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			boolean qutubMinarstatus = Helpers.checkIfDisplayed(driver, locators.get("qutubMinarXpath"));
+			Assert.assertEquals(true, qutubMinarstatus);
+			if (qutubMinarstatus == true) {
+				Reporter.log("Qutub Minar has been Displayed");
+			}
+			boolean tombStatus = Helpers.checkIfDisplayed(driver, locators.get("humayunsTombXpath"));
+			Assert.assertEquals(true, tombStatus);
+			if (tombStatus == true) {
+				Reporter.log("Humayuns Tomb has been Displayed");
+			}
 		}
 	}
+
 	
-	
-}
